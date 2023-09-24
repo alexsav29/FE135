@@ -159,68 +159,73 @@ let day_10 = +prompt('Введите день года от 1 до 365');
 let month = 0;
 let yearTime = '';
 
-switch (true) {
-    case (day_10 >= 1 && day_10 <= 31):
-        month = 1;
-        break;
-    case (day_10 >= 32 && day_10 <= 59):
-        month = 2;
-        break;
-    case (day_10 >= 60 && day_10 <= 90):
-        month = 3;
-        break;
-    case (day_10 >= 91 && day_10 <= 120):
-        month = 4;
-        break;
-    case (day_10 >= 121 && day_10 <= 151):
-        month = 5;
-        break;
-    case (day_10 >= 152 && day_10 <= 181):
-        month = 6;
-        break;
-    case (day_10 >= 182 && day_10 <= 212):
-        month = 7;
-        break;
-    case (day_10 >= 213 && day_10 <= 243):
-        month = 8;
-        break;
-    case (day_10 >= 244 && day_10 <= 273):
-        month = 9;
-        break;
-    case (day_10 >= 274 && day_10 <= 304):
-        month = 10;
-        break;
-    case (day_10 >= 305 && day_10 <= 334):
-        month = 11;
-        break;
-    case (day_10 >= 335 && day_10 <= 365):
-        month = 12;
-        break;
-}
+if (day_10 < 1 || day_10 > 365) {
+    console.log('Вы ввели неверное значение');
+} else {
+    switch (true) {
+        case (day_10 >= 1 && day_10 <= 31):
+            month = 1;
+            break;
+        case (day_10 >= 32 && day_10 <= 59):
+            month = 2;
+            break;
+        case (day_10 >= 60 && day_10 <= 90):
+            month = 3;
+            break;
+        case (day_10 >= 91 && day_10 <= 120):
+            month = 4;
+            break;
+        case (day_10 >= 121 && day_10 <= 151):
+            month = 5;
+            break;
+        case (day_10 >= 152 && day_10 <= 181):
+            month = 6;
+            break;
+        case (day_10 >= 182 && day_10 <= 212):
+            month = 7;
+            break;
+        case (day_10 >= 213 && day_10 <= 243):
+            month = 8;
+            break;
+        case (day_10 >= 244 && day_10 <= 273):
+            month = 9;
+            break;
+        case (day_10 >= 274 && day_10 <= 304):
+            month = 10;
+            break;
+        case (day_10 >= 305 && day_10 <= 334):
+            month = 11;
+            break;
+        case (day_10 >= 335 && day_10 <= 365):
+            month = 12;
+            break;
+    }
 
-switch (month) {
-    case 12:
-    case 1:
-    case 2:
-        yearTime = 'Зима';
-        break;
-    case 3:
-    case 4:
-    case 5:
-        yearTime = 'Весна';
-        break;
-    case 6:
-    case 7:
-    case 8:
-        yearTime = 'Лето';
-        break;
-    case 9:
-    case 10:
-    case 11:
-        yearTime = 'Осень';
-        break;
 
-}
+    switch (month) {
+        case 12:
+        case 1:
+        case 2:
+            yearTime = 'Зима';
+            break;
+        case 3:
+        case 4:
+        case 5:
+            yearTime = 'Весна';
+            break;
+        case 6:
+        case 7:
+        case 8:
+            yearTime = 'Лето';
+            break;
+        case 9:
+        case 10:
+        case 11:
+            yearTime = 'Осень';
+            break;
 
-console.log(`Месяц: ${month}
+    }
+
+    console.log(`Месяц: ${month}
 Пора года: ${yearTime}`);
+}
