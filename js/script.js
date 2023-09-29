@@ -187,6 +187,7 @@ console.log(`--------------------
 n = prompt('Введите число');
 let count = 0;
 sum = 0;
+newN = '';
 
 for (let i = 0; i < n.length; i = i + 1) {
     console.log(`${i + 1}-я цифра: ${n[i]}`);
@@ -194,5 +195,10 @@ for (let i = 0; i < n.length; i = i + 1) {
     sum = sum + +n[i];
 }
 
+for (let i = n.length - 1; i >= 0; i = i - 1) {
+    newN = newN + n[i];
+}
+
 console.log(`Количество цифр в числе - ${count}
-Сумма цифр в числе - ${sum}`);
+Сумма цифр в числе - ${sum}
+Число с обратным порядком цифр - ${newN}`);
