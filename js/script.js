@@ -268,11 +268,13 @@ const fibArray = function (end) {
 console.log(fibArray(1000));
 
 
-// Задача 10 (не работает, непонятно как организовывать шаг рекурсии)
+// Задача 10 
+// (переделал)
 console.log(`---------------
 Задача 10
 ---------------`);
-
+/*
+// (не работает, непонятно как организовывать шаг рекурсии)
 const func10 = function (num) {
     if (num <= 9) {
         return num;
@@ -283,23 +285,117 @@ const func10 = function (num) {
 }
 
 console.log(func10(123));
+*/
+
+// вариант 2 (переделал)
+// так с цикллом можно было или нужно было, чтобы прямо всё-всё было через рекурсию?
+const func10 = function (num) {
+    if (num <= 9) {
+        return num;
+    } else {
+        num = `${num}`;
+        let sum = 0;
+        for (let i = 0; i < num.length; i = i + 1) {
+            sum = sum + +num[i];
+        }
+        return func10(sum);
+    }
+
+}
+
+console.log(func10(1234));
 
 
-// Задача 11 (не работает, тоже непонятно как организовывать шаг рекурсии)
+// Задача 11 
+// (в файл test.js сбросил первые варианты, которые не особо работают. Непонятно как организовывать шаг рекурсии)
 console.log(`---------------
 Задача 11
 ---------------`);
 
-const printArrElem = function (array) {
-    if (array[i] < 0) {
-        return
-    } else if (array[i] === 0) {
-        return console.log(array[i]);
+let i = 0;
+
+const printArr = function (arr) {
+    console.log(arr[i]);
+
+    if (arr[i] < arr.length) {
+        i = i + 1;
+        printArr(arr);
     } else {
-        console.log(array[array.length - 1]);
-        array.length = array.length - 1;
-        return printArrElem(array);
+        return
+    }
+
+}
+
+printArr([1, 2, 3, 4, 5, 6]);
+
+
+
+
+// Задача 12
+// (ниже в коде написал место, где возник вопрос)
+console.log(`---------------
+Задача 12
+---------------`);
+
+const concatStr = function (str, length) {
+    if (str.length < length) {
+        for (let i = 0; i < length; i = i + 1) {
+            str = str + ' ';
+        }
+
+        for (let i = 0; i < length; i = i + 1) {
+            str = '* ' + str;
+            str = str + ' *';
+        }
+
+        return str;
+    } else {
+        return str;
     }
 }
 
-printArrElem([1, 2, 3, 4, 5, 6]);
+
+const printCard = function (name, surName, secondName, groupNumber) {
+    name = prompt('Введите ваше имя');
+    surName = prompt('Введите вашу фамилию');
+    secondName = prompt('Введите ваше отчество');
+    groupNumber = prompt('Введите номер вашей группы');
+
+    let length = 0;
+
+    let str1 = `Домашняя работа: «Функции»`;
+    let str2 = `Выполнил: студент гр. ${groupNumber}`;
+    let str3 = `${surName} ${name} ${secondName}`;
+    let strStar = '';
+
+    switch (true) {
+        case (str1.length > length): length = str1.length;
+            break;
+        case (str2.length > length): length = str2.length;
+            break;
+        case (str3.length > length): length = str3.length;
+            break;
+
+    }
+
+    for (let i = 1; i <= length + 4; i = i + 1) {
+        strStar = strStar + '*';
+    }
+
+    for (let i = 1; i <= 3; i = i + 1) {
+        str = str + `${i}`; // может здесь что-то можно придумать, чтобы при каждой итерации цикла имя переменной менялось: str1, потом str2, затем str3.
+        concatStr(str, length);
+    }
+
+
+    console.log(`
+${strStar}
+${str1}
+${str2}
+${str3}
+${strStar}
+`);
+}
+
+printCard();
+
