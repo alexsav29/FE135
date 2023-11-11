@@ -6,11 +6,14 @@ const Vehicle = function () {
     let speed = 0;
     let distance = 0;
     let time = 0;
+    let type;
+    let model;
+    let plateNumber;
 
-    this.getInfo = () => {
-        const type = prompt('Введите тип транспортного средства');
-        const model = prompt('Введите модель транспортного средства');
-        const plateNumber = prompt('Введите номер транспортного средства');
+    this.setInfo = () => {
+        type = prompt('Введите тип транспортного средства');
+        model = prompt('Введите модель транспортного средства');
+        plateNumber = prompt('Введите номер транспортного средства');
     };
 
     this.engineStartStop = () => {
@@ -77,11 +80,11 @@ const Vehicle = function () {
         calculator();
 
         console.log(`Тип транспортного средства: ${type} 
-                     Модель транспортного средства: ${model}
-                     Номер транспортного средства: ${plateNumber}
-                     Скорость: ${speed}
-                     Время: ${time}
-                     Пройденный путь: ${distance}`);
+Модель транспортного средства: ${model}
+Номер транспортного средства: ${plateNumber}
+Скорость: ${speed}
+Время: ${time}
+Пройденный путь: ${distance}`);
     }; // почему-то не видит type. Я так понимаю, что не будет видеть и остальные переменные. Как тогда к ним достучаться?
 };
 
