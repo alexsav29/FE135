@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+table, td, th {
+    border: 2px solid black;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td::selection {
+    background: lightgreen;
+    color: red;
+}
+
+td, th {
+    text-align: center;
+}
+
+th {
+    padding: 3px;
+    background-color: #dff;
+}
+
+td {
+    padding: 7px;
+}
+
+tr:nth-child(even) {
+    background-color: #f4ed148b;
+}
+
+.container__wrapper {
+    margin: 20px;
+}
+
+.table__header__title {
+    font-weight: bold;
+}
+
+.table__body__user {
+    text-align-last: left;
+}
