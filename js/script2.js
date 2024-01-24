@@ -58,11 +58,13 @@ class Contacts {
     };
 
     localStorageMapHandler() {
-        const localStorageArray = JSON.parse(localStorage.getItem('contacts'));
-        const newDataArr = localStorageArray ? localStorageArray.map(({ data }) => new User(data)) : undefined;
-        // const newDataArr = localStorageArray ? localStorageArray.map(({ data }) => this.add(data)) : undefined;   // ДЗ 13 (можно же так было сделать? В методе add мы же создаём нового Юзера и там уже есть такая строчка. Он выдаёт ошибку, но не могу до конца понять почему. Примерно понимаю. Просто хотелось сократить код)
+        let localStorageArray = JSON.parse(localStorage.getItem('contacts'));
+        console.log(localStorageArray);
 
-        return newDataArr;
+        if (localStorageArray) {
+            return localStorageArray.map(({ data }) => new User(data));
+        };
+        return undefined;
     };
 
     clearLocalStorage() {
@@ -109,13 +111,14 @@ class ContactsApp extends Contacts {
         this.onAdd();
         this.renderContactsItems();
 
-        // this.getLocalStorage() ? undefined : this.getFetchData();  // ДЗ 13. Почему-то с тернарным оператором и undefined срабатывает не так как надо (при очистке LocalStorage и попытке добавить вруную новую запись через input-ы, идёт запрос на Сервер, отрисовываются записи с Сервера, и потом в конце них добавляется эта запись. )
+        this.initGetFetchData();
+    };
 
-        if (!this.getLocalStorage()) {  // ДЗ 13. Немного некорректно отрабатывает. Пока Куки живы запрос на Сервер при обновлении страницы не идёт, всё хорошо. Но как только Куки умирают и обновляешь страницу запрос идёт и всё вроде бы нормально, так и должно быть. Но к старым записям с Сервера добавляются новые - происходит дублирование. Не могу понять почему. LocalStorage же должен очищаться. Или может он очищается после обновления страницы и при условия отсутствия Куки. Но так как я обновляю страницу, происходит запрос на Сервер и LocalStorage не успевает обновиться?
+    initGetFetchData() {
+        if (!this.getLocalStorage()) {
             this.getFetchData();
         };
     };
-
 
     async getFetchData() {
         const response = await fetch('https://jsonplaceholder.typicode.com/users');
