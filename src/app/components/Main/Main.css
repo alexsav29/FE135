@@ -1,0 +1,11 @@
+.main {
+    background-color: #dbed4d;
+}
+
+.list__item {
+    list-style: none;
+    padding: 20px;
+    margin: 30px;
+    border: 3px solid #4ded8a;
+    border-radius: 10px;
+}
