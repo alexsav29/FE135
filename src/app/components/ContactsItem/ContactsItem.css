@@ -1,0 +1,15 @@
+.contact__item {
+    margin: 10px;
+    padding: 10px;
+
+    border: 2px solid black;
+
+    border-radius: 15px;
+
+    background-color: #aaeb27;
+}
+
+.contact__item span {
+    font-weight: bold;
+    text-decoration: underline;
+}
