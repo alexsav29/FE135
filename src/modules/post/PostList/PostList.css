@@ -1,0 +1,15 @@
+.post__container {
+    max-width: 1024px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.post__item {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+
+.post__item:nth-child(odd) {
+    background-color: #ffef96;
+}
