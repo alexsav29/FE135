@@ -1,0 +1,19 @@
+.header,
+.footer {
+    flex: 0 0 auto;
+}
+
+.main {
+    flex: 1 0 auto;
+    margin-top: 20px;
+}
+
+.cart.ant-badge {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.cart .ant-badge-count {
+    transform: translate(100%, -45%);
+}

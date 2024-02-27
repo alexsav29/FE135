@@ -1,0 +1,5 @@
+.incr_dicr_btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
